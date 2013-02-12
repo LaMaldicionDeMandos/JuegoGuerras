@@ -14,7 +14,6 @@ public class Country {
 	private String name;
 	private double pbi;
 	private double reserve;
-	private double win;
 	private double estamitionPercent = .01f;
 	private double estimation;
 	private Stat[] historyStats;
@@ -25,8 +24,19 @@ public class Country {
 	
 	public Country(){}
 	
-	public Country(String code, String name, long pbi, float lat, float lon){
-		
+	public Country(String code, String name, double pbi, double lat, double lon){
+		this.code = code;
+		this.name = name;
+		this.lat = lat;
+		this.lon = lon;
+		this.pbi = pbi*.9;
+		this.reserve = pbi*.1;
+		this.estamitionPercent = .01;
+		this.estimation = this.pbi*this.estamitionPercent;
+		this.historyStats = new Stat[0];
+		this.date = new GameDate();
+		this.fixedCost = 0;
+		this.dynamicCost = 0;
 	}
 
 	public String getId() {
@@ -83,14 +93,6 @@ public class Country {
 
 	public void setReserve(double reserve) {
 		this.reserve = reserve;
-	}
-
-	public double getWin() {
-		return win;
-	}
-
-	public void setWin(double win) {
-		this.win = win;
 	}
 
 	public double getEstamitionPercent() {
