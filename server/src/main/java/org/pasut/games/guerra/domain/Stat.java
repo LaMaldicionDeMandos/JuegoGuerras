@@ -15,6 +15,10 @@ public class Stat {
 		this.dynamicCost = dynamicCost;
 	}
 	
+	public void addDynamicCost(double cost){
+		this.dynamicCost+=cost;
+	}
+	
 	
 	public double getAmount() {
 		return amount;

@@ -14,6 +14,10 @@ function Info(){
 		that.country = event.data();
 		that.update();
 	}, this);
+	eventBus.on(UpdateCountryEvent, function(event){
+		that.country = event.data();
+		that.update();
+	}, this);
 };
 
 Info.prototype.update = function(){

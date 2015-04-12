@@ -59,3 +59,20 @@ function load(params){
 		}
 	});
 };
+
+function buyCB(params){
+	if(params.length != 3){
+		alert("Error: Tiene que tener los parametros (level, lat, lon)");
+		return;
+	}
+	$.ajax({
+		type: 'POST',
+		//@Path("unit/buy/centralBase/{code}/{level}/{lat}/{lon}")
+		url: 'rest/unit/buy/centralBase/' + game.country.code + '/' + params[0] + '/' + params[1] + '/' + params[2],
+		dataType: 'json',
+		contentType: 'application/json',
+		success: function(country){
+			new UpdateCountryEvent(country);
+		}
+	});
+}

@@ -23,6 +23,7 @@
 <script type="text/javascript" src="js/view/GameMap.js"></script>
 <script type="text/javascript" src="js/view/Info.js"></script>
 <script type="text/javascript" src="js/view/List.js"></script>
+<script type="text/javascript" src="js/view/Graphic.js"></script>
 
 <script type="text/javascript">
 	google.load('visualization', '1', {packages: ['corechart']});
@@ -70,14 +71,14 @@
 						</div>
 					</div>
 				</div>
+			<div id="graphInfo" class="graphInfo">
+				<div class="box">
+				</div>
+			</div>
 			</div>
 			<div id="units" class="list">
 				<h2 id="listTitle">Unidades</h2>
 				<div id="unitListBox"></div>
-			</div>
-			<div id="graphInfo" class="graphInfo">
-				<div class="box">
-				</div>
 			</div>
 		</div>
 	</div>
@@ -92,7 +93,8 @@
 	
 	<div class=footer>
 		<div class="graph">
-			<div id="graph" class="graphChart"></div>
+			<div id="graph1" class="graphChart"></div>
+			<div id="graph2" class="graphChart"></div>
 		</div>
 		<div class="console">
 			<input id="console" class="console" ></input>

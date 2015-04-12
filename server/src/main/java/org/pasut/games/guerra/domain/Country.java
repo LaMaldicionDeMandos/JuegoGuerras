@@ -33,10 +33,16 @@ public class Country {
 		this.reserve = pbi*.1;
 		this.estamitionPercent = .01;
 		this.estimation = this.pbi*this.estamitionPercent;
-		this.historyStats = new Stat[0];
+		this.historyStats = new Stat[1];
 		this.date = new GameDate();
 		this.fixedCost = 0;
 		this.dynamicCost = 0;
+		this.historyStats[0] = new Stat(this.estimation,this.fixedCost, this.dynamicCost);
+	}
+	
+	public void addDynamicCost(double cost){
+		this.dynamicCost+= cost;
+		this.historyStats[date.getDay()].addDynamicCost(cost);
 	}
 
 	public String getId() {

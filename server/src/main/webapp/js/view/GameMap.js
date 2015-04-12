@@ -19,12 +19,20 @@ function GameMap(){
 		that.map.setCenter(center);
 	}, this);
 	eventBus.on(ArriveUnitsEvent, function(event){
+		that.clearMap();
 		that.units = event.data();
 		that.addUnits(that.units);
 	}, this);
 };
 
 //Private Methods
+GameMap.prototype.clearMap = function(){
+	if(this.units==undefined) return;
+	for(var i=0;i<this.units.length;i++){
+		this.units[i].marker.setMap(null);
+	}
+};
+
 GameMap.prototype.addUnits = function(units){
 	for(var i=0;i<this.units.length;i++){
 		this.addUnit(this.units[i]);
@@ -37,7 +45,7 @@ GameMap.prototype.addUnit = function(unit){
 			new google.maps.Size(16,12),
 			new google.maps.Point(0,0),
 			new google.maps.Point(26,26));
-    this.marker = new google.maps.Marker({
+    unit.marker = new google.maps.Marker({
     	position: myLatLng,
     	map: this.map,
     	icon: 'images/icons/' + unit.type + '.png',
